@@ -6,8 +6,8 @@ namespace DataStructuresPart1.LinkedList
 {
     public class MyLinkedList
     {
-        private Node first;
-        private Node last;
+        private Node First;
+        private Node Last;
         // AddFirst
         // AddLast
         // DeleteFirst
