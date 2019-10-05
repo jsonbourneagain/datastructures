@@ -115,6 +115,20 @@ namespace DataStructuresPart1.LinkedList
             //}
             return Count;
         }
+        // ToArray
+        public int[] ToArray()
+        {
+            int[] arr = new int[Count];
+            var current = First;
+            int index = 0;
+
+            while(current != null)
+            {
+                arr[index++] = current.Value;
+                current = current.Next;
+            }
+            return arr;
+        }
         private Node GetPreviousNode(Node node)
         {
             var current = First;
