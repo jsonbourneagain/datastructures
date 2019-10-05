@@ -13,6 +13,13 @@ namespace DataStructuresPart1
             myLinkedList.AddLast(10);
             myLinkedList.AddLast(30);
             myLinkedList.AddLast(40);
+            myLinkedList.AddFirst(5);
+            //myLinkedList.DeleteFirst();
+            myLinkedList.RemoveLast();
+            Console.WriteLine(myLinkedList.IndexOf(40));
+            //Console.WriteLine(myLinkedList.IndexOf(40));
+            //Console.WriteLine(myLinkedList.IndexOf(590));
+            //LinkedList<int> lss = new LinkedList<int>();
         }
     }
 }
