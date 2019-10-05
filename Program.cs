@@ -16,7 +16,8 @@ namespace DataStructuresPart1
             myLinkedList.AddFirst(5);
             //myLinkedList.DeleteFirst();
             myLinkedList.RemoveLast();
-            Console.WriteLine(myLinkedList.IndexOf(40));
+            Console.WriteLine(myLinkedList.Size());
+            //Console.WriteLine(myLinkedList.IndexOf(40));
             //Console.WriteLine(myLinkedList.IndexOf(40));
             //Console.WriteLine(myLinkedList.IndexOf(590));
             //LinkedList<int> lss = new LinkedList<int>();

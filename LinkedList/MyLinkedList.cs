@@ -91,6 +91,21 @@ namespace DataStructuresPart1.LinkedList
             previous.Next = null;
             Last = previous;
         }
+        public int Size()
+        {
+            if (IsEmpty())
+                return 0;
+            if (First == Last)
+                return 1;
+            var current = First;
+            int count = 0;
+            while (current != null)
+            {
+                current = current.Next;
+                count++;
+            }
+            return count;
+        }
         private Node GetPreviousNode(Node node)
         {
             var current = First;
