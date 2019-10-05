@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DataStructuresPart1
 {
@@ -21,6 +23,7 @@ namespace DataStructuresPart1
             myArray.InsertAt(99, 2);
             //}
             myArray.Print();
+            LinkedList<int> vs = new LinkedList<int>();
             
             //Console.WriteLine(myArray.Max());
 
