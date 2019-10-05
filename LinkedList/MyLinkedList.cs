@@ -14,6 +14,7 @@ namespace DataStructuresPart1.LinkedList
         }
         private Node First;
         private Node Last;
+        private int Count;
 
         // AddLast
         public void AddLast(int item)
@@ -29,6 +30,7 @@ namespace DataStructuresPart1.LinkedList
                 // this last after adding the node to the list. the recently added node now becomes the last node.
                 Last = node;
             }
+            Count++;
         }
 
         // AddFirst
@@ -43,6 +45,7 @@ namespace DataStructuresPart1.LinkedList
                 node.Next = First;
                 First = node;
             }
+            Count++;
         }
 
         // IndexOf
@@ -72,11 +75,13 @@ namespace DataStructuresPart1.LinkedList
             if (First == Last)
             {
                 First = Last = null;
+                Count--;
                 return;
             }
             var temp = First;
             First = First.Next;
             temp.Next = null;
+            Count--;
         }
         public void RemoveLast()
         {
@@ -85,26 +90,29 @@ namespace DataStructuresPart1.LinkedList
             if (First == Last)
             {
                 First = Last = null;
+                Count--;
                 return;
             }
             var previous = GetPreviousNode(Last);
             previous.Next = null;
             Last = previous;
+            Count--;
         }
         public int Size()
         {
-            if (IsEmpty())
-                return 0;
-            if (First == Last)
-                return 1;
-            var current = First;
-            int count = 0;
-            while (current != null)
-            {
-                current = current.Next;
-                count++;
-            }
-            return count;
+            // Problem with this approach is that every time you call the Size(), you're looping over the list. It's very inefficient.
+            //if (IsEmpty())
+            //    return 0;
+            //if (First == Last)
+            //    return 1;
+            //var current = First;
+            //int count = 0;
+            //while (current != null)
+            //{
+            //    current = current.Next;
+            //    count++;
+            //}
+            return Count;
         }
         private Node GetPreviousNode(Node node)
         {
