@@ -75,12 +75,14 @@ namespace DataStructuresPart1.LinkedList
             if (First == Last)
             {
                 First = Last = null;
-                Count--;
                 return;
             }
-            var temp = First;
-            First = First.Next;
-            temp.Next = null;
+            else
+            {
+                var temp = First;
+                First = First.Next;
+                temp.Next = null;
+            }
             Count--;
         }
         public void RemoveLast()
@@ -88,14 +90,13 @@ namespace DataStructuresPart1.LinkedList
             if (IsEmpty())
                 throw new Exception($"Linked list is empty.");
             if (First == Last)
-            {
                 First = Last = null;
-                Count--;
-                return;
+            else
+            {
+                var previous = GetPreviousNode(Last);
+                previous.Next = null;
+                Last = previous;
             }
-            var previous = GetPreviousNode(Last);
-            previous.Next = null;
-            Last = previous;
             Count--;
         }
         public int Size()
