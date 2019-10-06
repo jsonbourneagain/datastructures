@@ -99,22 +99,8 @@ namespace DataStructuresPart1.LinkedList
             }
             Count--;
         }
-        public int Size()
-        {
-            // Problem with this approach is that every time you call the Size(), you're looping over the list. It's very inefficient.
-            //if (IsEmpty())
-            //    return 0;
-            //if (First == Last)
-            //    return 1;
-            //var current = First;
-            //int count = 0;
-            //while (current != null)
-            //{
-            //    current = current.Next;
-            //    count++;
-            //}
-            return Count;
-        }
+        public int Size() => Count;
+
         // ToArray
         public int[] ToArray()
         {
@@ -131,27 +117,16 @@ namespace DataStructuresPart1.LinkedList
         }
         public void Reverse()
         {
-            // This has runtime complexity of O(n^2)
-            if (IsEmpty())
-                throw new InvalidOperationException($"Can't reverse an empty list");
-            if (Count == 1)
+            int[] arr = this.ToArray();
+            First = Last =  new Node(arr[Count - 1]);
+            int c = Count - 2;
+            First.Next = new Node(arr[Count - 1]);
+
+            while (c >= 0)
             {
-                First = Last;
-                return;
+                AddLast(arr[c--]);
             }
-
-
-            Node current = Last, lastNode = Last;
-            Node previous = GetPreviousNode(Last);
-
-            while (current != First)
-            {
-                current.Next = previous;
-                current = previous;
-                previous = GetPreviousNode(current);
-            }
-            Last = current;
-            First = lastNode;
+            Count = arr.Length;
         }
         private Node GetPreviousNode(Node node)
         {
