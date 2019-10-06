@@ -12,7 +12,7 @@ namespace DataStructuresPart1
         static void Main(string[] args)
         {
             // Reverse a string using stack
-            string str = " ( 1 + 2  >";
+            string str = " 1 + 2  >";
             MyStack ms = new MyStack();
             Console.WriteLine(ms.IsBalancedExpression(str));
         }
