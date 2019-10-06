@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace DataStructuresPart1
 {
@@ -9,15 +10,20 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            var myLinkedList = new MyLinkedList();
-            myLinkedList.AddLast(10);
-            myLinkedList.AddLast(30);
-            myLinkedList.AddLast(50);
-            myLinkedList.AddLast(60);
-            myLinkedList.AddLast(70);
-            myLinkedList.AddLast(80);
-            myLinkedList.PrintMiddle();
+            // Reverse a string using stack
+            string str = "abcdef";
 
+            Stack<char> charStack = new Stack<char>();
+            foreach (char c in str)
+            {
+                charStack.Push(c);
+            }
+            StringBuilder revStr = new StringBuilder();
+            foreach (char c in charStack)
+            {
+                revStr.Append(c);
+            }
+            Console.WriteLine(revStr.ToString());
         }
     }
 }
