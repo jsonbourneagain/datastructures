@@ -38,7 +38,7 @@ namespace DataStructuresPart1.Stacks
                     charStack.Push(c);
                 else if (closeLst.Contains(c))
                 {
-                    if (openLst.IndexOf(charStack.Pop()) != closeLst.IndexOf(c))
+                    if (charStack.Count != 0 && openLst.IndexOf(charStack.Pop()) != closeLst.IndexOf(c))
                     {
                         IsValid = false;
                         break;
