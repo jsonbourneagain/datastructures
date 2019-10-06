@@ -117,6 +117,8 @@ namespace DataStructuresPart1.LinkedList
         }
         public void Reverse()
         {
+            if (IsEmpty())
+                return;
             int[] arr = this.ToArray();
             First = Last =  new Node(arr[Count - 1]);
             int c = Count - 2;

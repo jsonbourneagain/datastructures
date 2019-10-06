@@ -13,7 +13,7 @@ namespace DataStructuresPart1
             myLinkedList.AddLast(10);
             myLinkedList.AddLast(30);
             myLinkedList.AddLast(40);
-            myLinkedList.AddFirst(5);
+            //myLinkedList.AddFirst(5);
             myLinkedList.Reverse();
             Console.WriteLine($"Reversed");
         }
