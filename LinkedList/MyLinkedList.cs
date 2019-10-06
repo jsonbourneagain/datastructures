@@ -142,7 +142,7 @@ namespace DataStructuresPart1.LinkedList
                 c++;
             }
             // Then, move both pointers until second is null i.e reaches the last node. At this point, your first pointer points to target(kth node from end) node.
-            while( second.Next != null)
+            while( second.Next != null) // Just an afterthought, you can also write it this way => while(second != Last)
             {
                 first = first.Next;
                 second = second.Next;
