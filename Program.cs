@@ -11,10 +11,18 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            // Reverse a string using stack
-            string str = " 1 + 2  >";
-            MyStack ms = new MyStack();
-            Console.WriteLine(ms.IsBalancedExpression(str));
+            
+            Stacks.Stack myStack = new Stacks.Stack();
+            myStack.Push(5);
+            myStack.Push(4);
+            myStack.Push(8);
+            var tem = myStack.Pop();
+            var tem1 = myStack.Pop();
+            var tem2 = myStack.Pop();
+            //var pek = myStack.Peek();
+            Console.WriteLine(myStack.IsEmpty());
+            
+            Console.WriteLine();
         }
     }
 }
