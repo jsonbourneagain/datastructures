@@ -21,11 +21,9 @@ namespace DataStructuresPart1.Stacks
                     tempArr[i] = arr[i];
                 }
                 arr = tempArr;
-
-                arr[Count++] = item;
             }
-            else
-                arr[Count++] = item;
+            arr[Count++] = item;
+
         }
 
         // Pop
@@ -33,10 +31,10 @@ namespace DataStructuresPart1.Stacks
         {
             if (Count > 0)
             {
-                var temp = arr[Count - 1];
-                arr[Count - 1] = -1; // For the sake of simplicity I'm using -1 to say that, place is vacant if it has -1
-                Count--;
-                return temp;
+                //var temp = arr[Count - 1];
+                //arr[Count - 1] = -1; // For the sake of simplicity I'm using -1 to say that, place is vacant if it has -1
+                //Count--;
+                return arr[--Count]; // Just decrement the counter
             }
             else
                 throw new InvalidOperationException($"Stack is empty.");

@@ -11,17 +11,23 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
+            TwoStackInAnArray two = new TwoStackInAnArray();
+            //two.Push1(3);
+            //two.Push2(5);
+            //two.Push1(9);
+            //two.Push2(99);
+            //two.Push1(300);
+            two.Push2(500);
+
+            //var t1 = two.Pop1();
+            //var t2 = two.Pop2();
+
+            Console.WriteLine($"Stack 1 is empty {two.IsEmpty1()}");
+            Console.WriteLine($"Stack 2 is empty {two.IsEmpty2()}");
             
-            Stacks.Stack myStack = new Stacks.Stack();
-            myStack.Push(5);
-            myStack.Push(4);
-            myStack.Push(8);
-            var tem = myStack.Pop();
-            var tem1 = myStack.Pop();
-            var tem2 = myStack.Pop();
-            //var pek = myStack.Peek();
-            Console.WriteLine(myStack.IsEmpty());
-            
+            Console.WriteLine($"Stack 1 is full {two.IsFull1()}");
+            Console.WriteLine($"Stack 2 is full {two.IsFull2()}");
+
             Console.WriteLine();
         }
     }
