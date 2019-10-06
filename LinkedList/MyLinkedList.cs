@@ -120,7 +120,7 @@ namespace DataStructuresPart1.LinkedList
             if (IsEmpty())
                 return;
             int[] arr = this.ToArray();
-            First = Last =  new Node(arr[Count - 1]);
+            First = Last = new Node(arr[Count - 1]);
             int c = Count - 2;
             First.Next = new Node(arr[Count - 1]);
 
@@ -136,14 +136,14 @@ namespace DataStructuresPart1.LinkedList
                 return -1;
             // Declare 2 pointers initially pointing to the first node. Move the second pointer untill it's k-1 nodes apart from the first
             var first = First; var second = First; int c = 0;
-            while(c != k - 1)
+            while (c != k - 1)
             {
                 second = second.Next;
                 // If you don't know the size of the linked list, add a null check to catch Index out of range error => if(second == null) throw new Exception($"Invalid argument")
                 c++;
             }
             // Then, move both pointers until second is null i.e reaches the last node. At this point, your first pointer points to target(kth node from end) node.
-            while( second.Next != null) // Just an afterthought, you can also write it this way => while(second != Last)
+            while (second.Next != null) // Just an afterthought, you can also write it this way => while(second != Last)
             {
                 first = first.Next;
                 second = second.Next;
@@ -170,6 +170,19 @@ namespace DataStructuresPart1.LinkedList
                 first = first.Next;
             }
             Console.WriteLine($"Middle : {first.Value}");
+        }
+        // Exercise ( Check if the linked list has a loop)
+        public bool HasLoop()
+        {
+            var first = First; var second = First;
+            do
+            {
+                first = first.Next;
+                second = second.Next;
+                second = second.Next;
+            }
+            while (first != second);
+            return first == second;
         }
         private Node GetPreviousNode(Node node)
         {
