@@ -12,11 +12,12 @@ namespace DataStructuresPart1
             var myLinkedList = new MyLinkedList();
             myLinkedList.AddLast(10);
             myLinkedList.AddLast(30);
-            myLinkedList.AddLast(40);
-            //myLinkedList.AddFirst(5);
-            var k = 3;
-            //myLinkedList.Reverse();
-            Console.WriteLine($"{k} th node from the end is {myLinkedList.GetKthNodeFromTheEnd(k)}");
+            myLinkedList.AddLast(50);
+            myLinkedList.AddLast(60);
+            myLinkedList.AddLast(70);
+            myLinkedList.AddLast(80);
+            myLinkedList.PrintMiddle();
+
         }
     }
 }

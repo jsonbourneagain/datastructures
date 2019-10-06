@@ -139,6 +139,7 @@ namespace DataStructuresPart1.LinkedList
             while(c != k - 1)
             {
                 second = second.Next;
+                // If you don't know the size of the linked list, add a null check to catch Index out of range error => if(second == null) throw new Exception($"Invalid argument")
                 c++;
             }
             // Then, move both pointers until second is null i.e reaches the last node. At this point, your first pointer points to target(kth node from end) node.
@@ -148,6 +149,27 @@ namespace DataStructuresPart1.LinkedList
                 second = second.Next;
             }
             return first.Value;
+        }
+        // Exercise ( Print the middle of a Linked list assuming you don't know the size
+        public void PrintMiddle()
+        {
+            if (IsEmpty())
+                return;
+            var first = First;
+            var second = First;
+
+            while (second != Last)
+            {
+                second = second.Next;
+                if (second == Last)
+                {
+                    Console.WriteLine($"Middle: {first.Value}, {first.Next.Value}");
+                    return;
+                }
+                second = second.Next;
+                first = first.Next;
+            }
+            Console.WriteLine($"Middle : {first.Value}");
         }
         private Node GetPreviousNode(Node node)
         {
