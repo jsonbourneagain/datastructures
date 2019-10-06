@@ -122,12 +122,36 @@ namespace DataStructuresPart1.LinkedList
             var current = First;
             int index = 0;
 
-            while(current != null)
+            while (current != null)
             {
                 arr[index++] = current.Value;
                 current = current.Next;
             }
             return arr;
+        }
+        public void Reverse()
+        {
+            // This has runtime complexity of O(n^2)
+            if (IsEmpty())
+                throw new InvalidOperationException($"Can't reverse an empty list");
+            if (Count == 1)
+            {
+                First = Last;
+                return;
+            }
+
+
+            Node current = Last, lastNode = Last;
+            Node previous = GetPreviousNode(Last);
+
+            while (current != First)
+            {
+                current.Next = previous;
+                current = previous;
+                previous = GetPreviousNode(current);
+            }
+            Last = current;
+            First = lastNode;
         }
         private Node GetPreviousNode(Node node)
         {

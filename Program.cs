@@ -14,9 +14,11 @@ namespace DataStructuresPart1
             myLinkedList.AddLast(30);
             myLinkedList.AddLast(40);
             myLinkedList.AddFirst(5);
-            foreach (var item in myLinkedList.ToArray())
+            myLinkedList.Reverse();
+
+            for (int i = 0; i < myLinkedList.Size(); i++)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(i); 
             }
         }
     }
