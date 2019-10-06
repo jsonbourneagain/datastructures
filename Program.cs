@@ -14,8 +14,9 @@ namespace DataStructuresPart1
             myLinkedList.AddLast(30);
             myLinkedList.AddLast(40);
             //myLinkedList.AddFirst(5);
-            myLinkedList.Reverse();
-            Console.WriteLine($"Reversed");
+            var k = 3;
+            //myLinkedList.Reverse();
+            Console.WriteLine($"{k} th node from the end is {myLinkedList.GetKthNodeFromTheEnd(k)}");
         }
     }
 }

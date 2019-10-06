@@ -130,6 +130,25 @@ namespace DataStructuresPart1.LinkedList
             }
             Count = arr.Length;
         }
+        public int GetKthNodeFromTheEnd(int k)
+        {
+            if (IsEmpty() || Count < k || k <= 0)
+                return -1;
+            // Declare 2 pointers initially pointing to the first node. Move the second pointer untill it's k-1 nodes apart from the first
+            var first = First; var second = First; int c = 0;
+            while(c != k - 1)
+            {
+                second = second.Next;
+                c++;
+            }
+            // Then, move both pointers until second is null i.e reaches the last node. At this point, your first pointer points to target(kth node from end) node.
+            while( second.Next != null)
+            {
+                first = first.Next;
+                second = second.Next;
+            }
+            return first.Value;
+        }
         private Node GetPreviousNode(Node node)
         {
             var current = First;
