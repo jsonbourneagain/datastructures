@@ -6,6 +6,9 @@ namespace DataStructuresPart1.Stacks
 {
     public class MyStack
     {
+        private readonly List<char> openLst = new List<char> { '(', '<', '[', '{' };
+        private readonly List<char> closeLst = new List<char> { ')', '>', ']', '}' };
+
         public string StringReverser(string input)
         {
 
@@ -27,8 +30,6 @@ namespace DataStructuresPart1.Stacks
             if (string.IsNullOrEmpty(input))
                 throw new InvalidOperationException($"Not a valid input");
 
-            var openLst = new List<char> { '(', '<', '[', '{' };
-            var closeLst = new List<char> { ')', '>', ']', '}' };
             Stack<char> charStack = new Stack<char>();
             bool IsValid = true;
 
@@ -36,10 +37,12 @@ namespace DataStructuresPart1.Stacks
             {
                 if (openLst.Contains(c))
                     charStack.Push(c);
+
                 else if (closeLst.Contains(c))
                 {
                     if (charStack.Count == 0)
                         return false;
+
                     if (openLst.IndexOf(charStack.Pop()) != closeLst.IndexOf(c))
                     {
                         IsValid = false;
