@@ -10,14 +10,15 @@ namespace DataStructuresPart1.Queues
         private int[] arrQu = new int[10];
         private int Count = default;
         private int firstPointer = default;
-        private int lastdPointer = default;
+        private int lastPointer = default;
 
         public void Enqueue(int item)
         {
             if (IsFull())
                 throw new Exception($"Queue is full.");
 
-            arrQu[lastdPointer++] = item;
+            arrQu[lastPointer] = item;
+            lastPointer = (lastPointer + 1) % arrQu.Length;
             Count++;
         }
         public int Dequeue()
@@ -27,8 +28,12 @@ namespace DataStructuresPart1.Queues
                 ResetPointers();
                 throw new Exception($"Queue is empty.");
             }
+            
+            var temp = arrQu[firstPointer];
+            arrQu[firstPointer] = 0;
             Count--;
-            return arrQu[firstPointer++];
+            firstPointer = (firstPointer + 1) % arrQu.Length;
+            return temp;
         }
         public int Peek()
         {
@@ -42,7 +47,7 @@ namespace DataStructuresPart1.Queues
         private void ResetPointers()
         {
             firstPointer = 0;
-            lastdPointer = 0;
+            lastPointer = 0;
         }
 
     }

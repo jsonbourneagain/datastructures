@@ -24,8 +24,10 @@ namespace DataStructuresPart1
             arrayQueue.Enqueue(666);
             arrayQueue.Enqueue(666);
             arrayQueue.Enqueue(666);
-            var a = arrayQueue.Dequeue();
-            var b = arrayQueue.Peek();
+            arrayQueue.Dequeue();
+            arrayQueue.Dequeue();
+            arrayQueue.Enqueue(99);
+            //var b = arrayQueue.Peek();
 
             Console.WriteLine();
         }
