@@ -11,22 +11,17 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            TwoStackInAnArray two = new TwoStackInAnArray();
-            //two.Push1(3);
-            //two.Push2(5);
-            //two.Push1(9);
-            //two.Push2(99);
-            //two.Push1(300);
-            two.Push2(500);
+            // Min stack test cases
 
-            //var t1 = two.Pop1();
-            //var t2 = two.Pop2();
-
-            Console.WriteLine($"Stack 1 is empty {two.IsEmpty1()}");
-            Console.WriteLine($"Stack 2 is empty {two.IsEmpty2()}");
+            MinStack minStack = new MinStack();
+            minStack.Push(6);
+            minStack.Push(3);
+            minStack.Push(9);
+            minStack.Push(2);
+            minStack.Pop();
+            minStack.Pop();
+            Console.WriteLine(minStack.StackMin());
             
-            Console.WriteLine($"Stack 1 is full {two.IsFull1()}");
-            Console.WriteLine($"Stack 2 is full {two.IsFull2()}");
 
             Console.WriteLine();
         }
