@@ -12,22 +12,13 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            ArrayQueue arrayQueue = new ArrayQueue();
+            StackQueue sq = new StackQueue();
+            sq.Enqueue(6);
+            sq.Enqueue(7);
+            sq.Enqueue(9);
 
-            arrayQueue.Enqueue(6);
-            arrayQueue.Enqueue(66);
-            arrayQueue.Enqueue(666);
-            arrayQueue.Enqueue(666);
-            arrayQueue.Enqueue(666);
-            arrayQueue.Enqueue(666);
-            arrayQueue.Enqueue(666);
-            arrayQueue.Enqueue(666);
-            arrayQueue.Enqueue(666);
-            arrayQueue.Enqueue(666);
-            arrayQueue.Dequeue();
-            arrayQueue.Dequeue();
-            arrayQueue.Enqueue(99);
-            //var b = arrayQueue.Peek();
+            sq.Dequeue();
+            sq.Enqueue(99);
 
             Console.WriteLine();
         }
