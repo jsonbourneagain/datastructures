@@ -12,13 +12,12 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            StackQueue sq = new StackQueue();
-            sq.Enqueue(6);
-            sq.Enqueue(7);
-            sq.Enqueue(9);
-
-            sq.Dequeue();
-            sq.Enqueue(99);
+            PriorityQueue pq = new PriorityQueue();
+            pq.Enqueue(4);
+            pq.Enqueue(3);
+            pq.Enqueue(19);
+            pq.Enqueue(2);
+            pq.Enqueue(99);
 
             Console.WriteLine();
         }
