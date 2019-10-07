@@ -11,19 +11,33 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            // Min stack test cases
+            Queue<int> que = new Queue<int>();
+            que.Enqueue(5);
+            que.Enqueue(6);
+            que.Enqueue(7);
+            que.Enqueue(9);
 
-            MinStack minStack = new MinStack();
-            minStack.Push(6);
-            minStack.Push(3);
-            minStack.Push(9);
-            minStack.Push(2);
-            minStack.Pop();
-            minStack.Pop();
-            Console.WriteLine(minStack.StackMin());
-            
+            que = ReverseQueue(que);
 
             Console.WriteLine();
+        }
+        static Queue<int> ReverseQueue(Queue<int> que)
+        {
+            Stack<int> stack = new Stack<int>();
+            var qSize = que.Count;
+
+            for(int i =0; i < qSize; i++)
+            {
+                stack.Push(que.Dequeue());
+            }
+
+            var stackSize = stack.Count;
+
+            for (int j = 0; j < stackSize; j++)
+            {
+                que.Enqueue(stack.Pop());
+            }
+            return que;
         }
     }
 }
