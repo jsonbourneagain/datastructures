@@ -1,4 +1,5 @@
 ﻿using DataStructuresPart1.LinkedList;
+using DataStructuresPart1.Queues;
 using DataStructuresPart1.Stacks;
 using System;
 using System.Collections;
@@ -11,13 +12,20 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            Queue<int> que = new Queue<int>();
-            que.Enqueue(5);
-            que.Enqueue(6);
-            que.Enqueue(7);
-            que.Enqueue(9);
+            ArrayQueue arrayQueue = new ArrayQueue();
 
-            que = ReverseQueue(que);
+            arrayQueue.Enqueue(6);
+            arrayQueue.Enqueue(66);
+            arrayQueue.Enqueue(666);
+            arrayQueue.Enqueue(666);
+            arrayQueue.Enqueue(666);
+            arrayQueue.Enqueue(666);
+            arrayQueue.Enqueue(666);
+            arrayQueue.Enqueue(666);
+            arrayQueue.Enqueue(666);
+            arrayQueue.Enqueue(666);
+            var a = arrayQueue.Dequeue();
+            var b = arrayQueue.Peek();
 
             Console.WriteLine();
         }
