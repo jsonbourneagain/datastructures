@@ -195,6 +195,28 @@ namespace DataStructuresPart1.LinkedList
             }
             return null;
         }
+
+        // Methods added for Queue implementation using Linked List.
+        public int RemoveFirstAndReturn()
+        {
+            int temp = default;
+            if (IsEmpty())
+                throw new Exception($"Linked list is empty.");
+            if (First == Last)
+            {
+                First = Last = null;
+                return First.Value;
+            }
+            else
+            {
+                var tempNode = First; temp = tempNode.Value;
+                First = First.Next;
+                tempNode.Next = null;
+            }
+            Count--;
+            return temp;
+        }
+        public int Peek() => First.Value;
         // Contains
         // IndexOf
     }

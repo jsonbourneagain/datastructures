@@ -12,16 +12,14 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            Queue<int> q = new Queue<int>();
-            q.Enqueue(5);
-            q.Enqueue(15);
-            q.Enqueue(25);
-            q.Enqueue(35);
-            q.Enqueue(55);
+            // Implement a queue using 
+            QueueWithLinkedList queueWithLinkedList = new QueueWithLinkedList();
+            queueWithLinkedList.Enqueue(5);
+            queueWithLinkedList.Enqueue(15);
+            queueWithLinkedList.Enqueue(35);
 
-            QueueReverser queueReverser = new QueueReverser();
-            var rq = queueReverser.ReverseQ(q, 4);
-
+            var a = queueWithLinkedList.Dequeue();
+            var b = queueWithLinkedList.Peek();
 
             Console.WriteLine();
         }
