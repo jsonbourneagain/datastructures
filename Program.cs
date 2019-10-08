@@ -12,14 +12,13 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            // Implement a queue using 
-            QueueWithLinkedList queueWithLinkedList = new QueueWithLinkedList();
-            queueWithLinkedList.Enqueue(5);
-            queueWithLinkedList.Enqueue(15);
-            queueWithLinkedList.Enqueue(35);
+            StackUsingQueue stack = new StackUsingQueue();
+            stack.Push(5);
+            stack.Push(35);
+            stack.Push(55);
 
-            var a = queueWithLinkedList.Dequeue();
-            var b = queueWithLinkedList.Peek();
+            var a = stack.Pop();
+            var b = stack.Pop();
 
             Console.WriteLine();
         }
