@@ -12,13 +12,7 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            StackUsingQueue stack = new StackUsingQueue();
-            stack.Push(5);
-            stack.Push(35);
-            stack.Push(55);
-
-            var a = stack.Pop();
-            var b = stack.Pop();
+            var cr = FirstNonRepeatedCharacter("a green apple");
 
             Console.WriteLine();
         }
@@ -27,7 +21,7 @@ namespace DataStructuresPart1
             Stack<int> stack = new Stack<int>();
             var qSize = que.Count;
 
-            for(int i =0; i < qSize; i++)
+            for (int i = 0; i < qSize; i++)
             {
                 stack.Push(que.Dequeue());
             }
@@ -39,6 +33,41 @@ namespace DataStructuresPart1
                 que.Enqueue(stack.Pop());
             }
             return que;
+        }
+
+        static char FirstNonRepeatedCharacter(string input)
+        {
+            var ar = input.Replace(" ", "");
+            Dictionary<char, int> charDic = new Dictionary<char, int>();
+
+            foreach (char c in ar)
+            {
+                if (!charDic.ContainsKey(c))
+                    charDic.Add(c, 1);
+                else
+                    charDic[c]++;
+            }
+
+            int i = default;
+            foreach (var c in charDic.Values)
+            {
+                if (c == 1)
+                    break;
+                i++;
+            }
+            int j = default;
+            char cr = ' ';
+
+            foreach (var d in charDic.Keys)
+            {
+                cr = d;
+                if (j == i)
+                    break;
+                j++;
+            }
+
+            return cr;
+
         }
     }
 }
