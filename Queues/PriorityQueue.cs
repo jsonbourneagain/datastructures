@@ -8,6 +8,7 @@ namespace DataStructuresPart1.Queues
     {
         private int[] arr = new int[5];
         private int Count = default;
+        private int frontPointer = default;
 
         public void Enqueue(int item)
         {
@@ -20,7 +21,7 @@ namespace DataStructuresPart1.Queues
             {
                 for (int i = Count - 1; i >= -1; i--)
                 {
-                    if (i >= 0 &&  arr[i] > item)
+                    if (i >= 0 && arr[i] > item)
                         arr[i + 1] = arr[i];
                     else
                     {
@@ -30,6 +31,13 @@ namespace DataStructuresPart1.Queues
                 }
             }
             Count++;
+        }
+
+        public int Dequeue()
+        {
+            if (frontPointer < arr.Length && Count != 0)
+                return arr[frontPointer++];
+            throw new InvalidOperationException();
         }
     }
 }
