@@ -12,12 +12,16 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            PriorityQueue pq = new PriorityQueue();
-            pq.Enqueue(4);
-            pq.Enqueue(3);
-            pq.Enqueue(19);
-            pq.Enqueue(2);
-            pq.Enqueue(99);
+            Queue<int> q = new Queue<int>();
+            q.Enqueue(5);
+            q.Enqueue(15);
+            q.Enqueue(25);
+            q.Enqueue(35);
+            q.Enqueue(55);
+
+            QueueReverser queueReverser = new QueueReverser();
+            var rq = queueReverser.ReverseQ(q, 4);
+
 
             Console.WriteLine();
         }
