@@ -54,7 +54,7 @@ namespace DataStructuresPart1.HashTables
         {
             return GetItem(key)?.Value;
         }
-        // My Hash function. It'll return me the index, where to add or lookup.
+
         public void Remove(int key)
         {
             var item = GetItem(key);
@@ -67,6 +67,8 @@ namespace DataStructuresPart1.HashTables
             throw new Exception($"Key not found.");
 
         }
+
+        // My Hash function. It'll return me the index, where to add or lookup.
         private int GetHash(int key)
         {
             var index = key % keyValues.Length;
