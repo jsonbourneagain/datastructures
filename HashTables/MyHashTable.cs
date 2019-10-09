@@ -21,52 +21,51 @@ namespace DataStructuresPart1.HashTables
 
         private LinkedList<KeyValue>[] keyValues = new LinkedList<KeyValue>[10];
 
-        public MyHashTable()
-        {
-            for (int i = 0; i < keyValues.Length; i++)
-            {
-                keyValues[i] = new LinkedList<KeyValue>();
-            }
-        }
+        //public MyHashTable()
+        //{
+        //    for (int i = 0; i < keyValues.Length; i++)
+        //    {
+        //        keyValues[i] = new LinkedList<KeyValue>();
+        //    }
+        //}
         public void Add(int key, string value)
         {
             var index = GetHash(key);
 
-            foreach (var obj in keyValues[index])
+            if (keyValues[index] == null)
+                keyValues[index] = new LinkedList<KeyValue>();
+
+
+            var bucket = keyValues[index];
+
+            foreach (var obj in bucket)
             {
                 if (obj.Key == key)
                 {
                     throw new Exception($"Key already exists.");
                 }
             }
-            var item = new KeyValue(key, value);
 
             // I'm using chaining here in case of Hash collision.
-            LinkedListNode<KeyValue> listNode = new LinkedListNode<KeyValue>(item);
-            if(keyValues[index].Count == 0)
-                keyValues[index].AddFirst(listNode);
-            else
-                keyValues[index].AddLast(listNode);
+            bucket.AddLast(new KeyValue(key, value));
 
         }
         public string Get(int key)
         {
             return GetItem(key)?.Value;
         }
-        // My Hash function. It'll return me the index to add or lookup.
+        // My Hash function. It'll return me the index, where to add or lookup.
         public void Remove(int key)
         {
             var item = GetItem(key);
-
             var index = GetHash(key);
 
-            var node = keyValues[index].First.List;
-            LinkedListNode<KeyValue> listNode = new LinkedListNode<KeyValue>(item);
-            //keyValues[index].Contains(listNode);
-            for (int i = 0; i < 5; i++)
-            {
-                
-            }
+            // It's not working for reasons not known to me. keyValues[index] is a linked list and I want to remove an item from here. It should ideally work.
+            if (item != null)
+                keyValues[index].Remove(item);
+
+            throw new Exception($"Key not found.");
+
         }
         private int GetHash(int key)
         {
@@ -78,7 +77,9 @@ namespace DataStructuresPart1.HashTables
             var index = GetHash(key);
             KeyValue keyValue = null;
 
-            foreach (var item in keyValues[index])
+            var bucket = keyValues[index];
+
+            foreach (var item in bucket)
             {
                 if (item.Key == key)
                 {
