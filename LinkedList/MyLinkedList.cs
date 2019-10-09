@@ -189,7 +189,7 @@ namespace DataStructuresPart1.LinkedList
             var current = First;
             while (current != null)
             {
-                if (current.Next == Last)
+                if (current.Next == node)
                     return current;
                 current = current.Next;
             }

@@ -1,4 +1,5 @@
-﻿using DataStructuresPart1.LinkedList;
+﻿using DataStructuresPart1.HashTables;
+using DataStructuresPart1.LinkedList;
 using DataStructuresPart1.Queues;
 using DataStructuresPart1.Stacks;
 using System;
@@ -12,8 +13,15 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            var cr = FirstNonRepeatedCharacter("a green apple");
+            MyHashTable hashtable = new MyHashTable();
+            hashtable.Add(5, "Lavakesh");
+            //hashtable.Add(5, "Pandey");
+            hashtable.Add(1, "Pandey");
+            hashtable.Add(3, "XYZZZZ");
+            hashtable.Add(13, "XYZZZZ");
+            hashtable.Remove(3);
 
+            //hashtable.Get(15);
             Console.WriteLine();
         }
         static Queue<int> ReverseQueue(Queue<int> que)
