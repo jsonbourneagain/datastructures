@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace DataStructuresPart1
 {
@@ -13,15 +14,13 @@ namespace DataStructuresPart1
     {
         static void Main(string[] args)
         {
-            MyHashTable hashtable = new MyHashTable();
-            hashtable.Add(5, "Lavakesh");
-            //hashtable.Add(5, "Pandey");
-            hashtable.Add(1, "Pandey");
-            hashtable.Add(3, "XYZZZZ");
-            hashtable.Add(13, "XYZZZZ");
-            hashtable.Remove(3);
+            int[] arr = new int[] { 1, 7, 5, 9, 2, 12, 3 };
+            //var b = MostFrequent(arr);
 
-            //hashtable.Get(15);
+            var c = UniquePairOfIntegers(arr, 2);
+
+            // Sorted set of sorted sets
+
             Console.WriteLine();
         }
         static Queue<int> ReverseQueue(Queue<int> que)
@@ -66,6 +65,39 @@ namespace DataStructuresPart1
             }
             return retChar;
 
+        }
+        static int MostFrequent(int[] arr)
+        {
+            // arr.ma
+            Dictionary<int, int> keyValuePairs = new Dictionary<int, int>();
+
+            foreach (var item in arr)
+            {
+                if (!keyValuePairs.ContainsKey(item))
+                    keyValuePairs.Add(item, 1);
+
+                keyValuePairs[item]++;
+            }
+            ArrayList ar = new ArrayList();
+
+            var keysList = new List<int>(keyValuePairs.Keys);
+            var valuesList = new List<int>(keyValuePairs.Values);
+
+            return keysList[valuesList.IndexOf(valuesList.Max())];
+        }
+        static int UniquePairOfIntegers(int[] arr, int k)
+        {
+            SortedSet<SortedSet<int>> sortedSet = new SortedSet<SortedSet<int>>();
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    if (Math.Abs(i - j) == k)
+                        sortedSet.Add(new SortedSet<int>(new int[] { i, j }));
+                }
+            }
+            return sortedSet.Count;
         }
     }
 }
